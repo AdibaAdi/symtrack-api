@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SymTrack Dashboard</title>
+</head>
+<body>
+  <h1>SymTrack Health Logs</h1>
+  <ul>
+    {% for log in logs %}
+      <li>{{ log.date }} - Glucose: {{ log.glucose }} | Sleep: {{ log.sleep_hours }}h | {{ log.symptoms }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

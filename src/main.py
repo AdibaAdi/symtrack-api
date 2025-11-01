@@ -3,6 +3,11 @@ from sqlalchemy.orm import Session
 from src import models, schemas, crud
 from src.database import engine, SessionLocal
 
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse
+from fastapi import Request
+
+
 # Create tables automatically if missing
 models.Base.metadata.create_all(bind=engine)
 
@@ -46,3 +51,12 @@ def get_alerts(db: Session = Depends(get_db)):
     if not results:
         return {"message": "No alerts — all values within healthy range."}
     return {"alerts": results}
+
+
+templates = Jinja2Templates(directory="src/templates")
+
+@app.get("/", response_class=HTMLResponse)
+def dashboard(request: Request, db: Session = Depends(get_db)):
+    logs = crud.get_logs(db=db)
+    return templates.TemplateResponse("dashboard.html", {"request": request, "logs": logs})
+
