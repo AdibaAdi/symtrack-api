@@ -55,6 +55,8 @@ SymTrack API is a health-tracking REST API that allows users to log daily data f
    ```
 **Visit:** http://127.0.0.1:8000/doc
 
+**Primary URL** https://symtrack-api.onrender.com
+
 ---
 
 ## Future Plans
