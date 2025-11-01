@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float, Date, Text
-from database import Base
+from src.database import Base
 
 # This class maps to the PostgreSQL table 'symptom_logs'
 class SymptomLog(Base):

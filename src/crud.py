@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-import models, schemas
+from src import models, schemas
 from sqlalchemy import func
 from datetime import timedelta, date
 
